@@ -17,7 +17,6 @@ function readFile(fileObj) {
   reader.readAsArrayBuffer(fileObj)
 }
 
-
 function applyPaperStyles() {
   pageContainerEl.style.border = 'none';
   pageContainerEl.style.background = 'linear-gradient(to right,#eee, #ddd)';
@@ -32,7 +31,6 @@ function removePaperStyles() {
   overlayEl.style.display = 'none';
   textareaEl.classList.remove('paper');
 }
-
 
 async function generateImage() {
   applyPaperStyles();
@@ -73,8 +71,6 @@ document.querySelector("#note").addEventListener('paste', (event) => {
   }
 })
 
-
-
 document.querySelector('select#handwriting-font').addEventListener('change', e => {
   textareaEl.style.fontFamily = e.target.value;
 })
@@ -107,7 +103,6 @@ document.querySelector('#year').innerHTML = new Date().getFullYear();
 
 document.querySelector('.generate-image').addEventListener('click', generateImage)
 
-
 function smoothlyScrollTo(hashval) {
   let target = document.querySelector(hashval)
   target.scrollIntoView({
@@ -116,7 +111,7 @@ function smoothlyScrollTo(hashval) {
   })
   history.pushState(null, null, hashval)
 }
-// Smooth scroll
+
 const anchorlinks = document.querySelectorAll('a[href^="#"]');
 
 for (let item of anchorlinks) { // relitere 
