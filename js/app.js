@@ -26,8 +26,6 @@ function applyPaperStyles() {
   textareaEl.classList.add('paper');
 }
 
-// applyPaperStyles();
-
 function removePaperStyles() {
   pageContainerEl.style.border = '1px solid #ccc';
   pageContainerEl.style.background = 'linear-gradient(to right,#fff, #fff)';
@@ -37,7 +35,6 @@ function removePaperStyles() {
 
 
 async function generateImage() {
-  // apply extra styles to textarea to make it look like paper
   applyPaperStyles();
 
   try{
@@ -61,7 +58,6 @@ async function generateImage() {
     console.error(err);
   }
 
-  // Now remove styles to get textarea back to normal
   removePaperStyles();
 
   if(isMobile) {
@@ -69,7 +65,6 @@ async function generateImage() {
   }
 }
 
-// Convert copied text to plaintext
 document.querySelector("#note").addEventListener('paste', (event) => {
   if(!event.clipboardData.types.includes('Files')) {
     event.preventDefault();
