@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
 }
+
 html, body{
   margin: 0px;
   width: 100%;
@@ -9,11 +10,7 @@ html, body{
   color: #333;
 }
 
-/* @font-face {
-  font-family: 'sa';
-  src: url('../fonts/Saurabh-Regular.ttf');
-} */
-
+/* Page */
 .page{
   padding: 10px;
   position:relative;
@@ -28,6 +25,7 @@ html, body{
   height: 600px;
   box-sizing: border-box;
 }
+
 .paper{
   background-image: linear-gradient(#999 0.05em, transparent 0.1em);
   background-color: unset !important;
@@ -49,6 +47,7 @@ html, body{
   word-spacing: 3px;
   position: relative;
 }
+
 .overlay{
   position: absolute;
   top:0;left:0;
@@ -57,12 +56,15 @@ html, body{
   display: none;
   background-image: linear-gradient(10deg, #0008, #0000);
 }
+
 .page:not(.margined-page){
   padding: 15px;
 }
+
 .page:not(.margined-page) .paper-content{
   padding: 0px;
 }
+
 /* Page with margin */
 .margined-page{
   width: 550px;
@@ -118,23 +120,25 @@ html, body{
   height: calc(100% - 80px);
 }
 
-
-
-
 .row{
   display: flex;
 }
+
 .col{
   flex: 1;
 }
+
+/* Form Container */
 .form-container{
   padding: 60px 100px;
   font-family: Arial, Helvetica, sans-serif;
   overflow-y: hidden;
 }
+
 .form-container label{
   font-weight: bold;
 }
+
 .form-container input, .form-container select{
   display: block;
   width: 100%;
@@ -148,6 +152,7 @@ html, body{
   display: inline-block;
   width: unset;
 }
+
 .form-container button{
   border: none;
   background-color: #09f;
@@ -208,6 +213,8 @@ html, body{
 	left: -1.5px;
 	
 }
+
+/* Download Button */
 .download-button{
   display: inline-block;
   text-decoration: none;
@@ -217,16 +224,20 @@ html, body{
   font-weight: bold;
   font-size: 10pt;
 }
+
 .disabled{
   cursor: not-allowed !important;
   opacity: .5;
 }
+
 .hide-pc{
   display: none;
 }
+
 .hide-mobile{
   display: initial;
 }
+
 @media (max-width: 768px){
   .row.responsive-row{display: block;}
   .output{
