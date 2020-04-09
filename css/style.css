@@ -27,10 +27,18 @@ html, body{
 }
 
 .paper{
-  background-image: linear-gradient(#999 0.05em, transparent 0.1em);
+  background-image: linear-gradient(transparent 0.05em, transparent 0.1em);
   background-color: unset !important;
   line-height: 1.5em;
   background-size: 100% 1.5em;
+  padding: unset;
+}
+
+.paper-lined {
+  background-image: linear-gradient(#999 0.05em, transparent 0.1em);
+  background-size: 100% 1.5em;
+  line-height: 1.5em;
+  background-color: unset !important;
   padding: unset;
 }
 

@@ -56,6 +56,14 @@
           <input id="paper-margin-toggle" type="checkbox"/>
           <div></div>
         </label>
+      </div>
+
+      <div class="col">
+        <label for="paper-line-toggle">Notebook Lines</label>
+        <label class="switch-toggle outer">
+          <input id="paper-line-toggle" type="checkbox" checked/>
+          <div></div>
+        </label>
         <br><br>
       </div>
     </div>
@@ -113,6 +121,10 @@
 
   <script defer src="./lib/html2canvas.min.js"></script>
   <script defer src="./js/app.js"></script>
+  <script type="text/javascript">
+    document.getElementById("paper-margin-toggle").checked = false;
+    document.getElementById("paper-line-toggle").checked = true;
+  </script>
 </body>
 
 </html>

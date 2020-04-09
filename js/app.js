@@ -1,8 +1,8 @@
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
 const pageContainerEl = document.querySelector('.page');
 const textareaEl = document.querySelector('.page > .textarea');
 const overlayEl = document.querySelector('.page > .overlay');
+var flag = 0;
 
 function readFile(fileObj) {
   const reader = new FileReader();
@@ -22,7 +22,14 @@ function applyPaperStyles() {
   pageContainerEl.style.background = 'linear-gradient(to right,#eee, #ddd)';
   overlayEl.style.background = `linear-gradient(${Math.random()*360}deg, #0008, #0000)`
   overlayEl.style.display = 'block';
-  textareaEl.classList.add('paper');
+  if (flag == 1) {
+    textareaEl.classList.remove('paper-lined');
+    textareaEl.classList.add('paper');
+  }
+  if (flag == 0) {
+    textareaEl.classList.remove('paper');
+    textareaEl.classList.add('paper-lined');
+  }
 }
 
 function removePaperStyles() {
@@ -30,6 +37,7 @@ function removePaperStyles() {
   pageContainerEl.style.background = 'linear-gradient(to right,#fff, #fff)';
   overlayEl.style.display = 'none';
   textareaEl.classList.remove('paper');
+  textareaEl.classList.remove('paper-lined');
 }
 
 async function generateImage() {
@@ -97,6 +105,15 @@ document.querySelector('#font-file').addEventListener('change', e => {
 
 document.querySelector('#paper-margin-toggle').addEventListener('change', e => {
   document.querySelector('.page').classList.toggle('margined-page');
+})
+
+document.querySelector('#paper-line-toggle').addEventListener('change', e => {
+  if (flag == 0) {
+    flag = 1;
+  }
+  else if (flag == 1) {
+    flag = 0;
+  }
 })
 
 document.querySelector('#year').innerHTML = new Date().getFullYear();
