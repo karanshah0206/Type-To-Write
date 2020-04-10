@@ -10,17 +10,17 @@ html, body{
   color: #333;
 }
 
-/* Page and Functionality */
+/* Page and Paper */
 .page{
   padding: 10px;
   position:relative;
   background: linear-gradient(to right,#fff, #fff);
-  padding:0px;
+  padding: 0px;
   border: 1px solid #ccc;
   top: 0px;
   margin:0px 8px 0px 0px;
   transform: rotateZ(0deg);
-  width:500px;
+  width: 500px;
   display: inline-block;
   height: 600px;
   box-sizing: border-box;
@@ -45,7 +45,8 @@ html, body{
 .textarea{
   background-color: #fff;
   height: 100%;
-  top: 0;left:0;
+  top: 0;
+  left:0;
   outline:none;
   font-family: 'Homemade Apple', cursive;
   color: #000F55;
@@ -73,9 +74,9 @@ html, body{
   padding: 0px;
 }
 
-/* Page with margin */
+/* Margins */
 .margined-page{
-  width: 550px;
+  width: 560px;
   height: 700px;
   overflow: hidden;
 }
@@ -83,6 +84,7 @@ html, body{
 .paper-margin-left-line{
   display: none;
 }
+
 .paper-margin-top-line{
   display: none;
 }
@@ -90,7 +92,7 @@ html, body{
 .margined-page .paper-margin-left-line{
   display: inline-block;
   width: 80px;
-  border-right: 2px solid pink;
+  border-right: 2px solid rgb(255, 140, 159);
   height: 200%;
   top: -100%;
   position: relative;
@@ -101,9 +103,10 @@ html, body{
   color: #000F55;
   font-family: 'Homemade Apple', cursive;
   width: 100%;
-  border-bottom: 2px solid pink;
+  border-bottom: 5px double rgb(255, 140, 159);
   height: 80px;
 }
+
 .date-container{
   padding: 10px;
   border: 1px solid #d68f9b;
@@ -136,9 +139,10 @@ html, body{
   flex: 1;
 }
 
-/* Form Container */
+/* Wrapper */
 .form-container{
-  padding: 60px 100px;
+  padding-left: 100px;
+  padding-right: 100px;
   font-family: Arial, Helvetica, sans-serif;
   overflow-y: hidden;
 }
