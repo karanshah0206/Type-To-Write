@@ -2,7 +2,19 @@ const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 const pageContainerEl = document.querySelector('.page');
 const textareaEl = document.querySelector('.page > .textarea');
 const overlayEl = document.querySelector('.page > .overlay');
-var flag = 0;
+const liner = document.getElementById("paper-line-toggle");
+
+function init () {
+  document.getElementById("paper-margin-toggle").checked = true;
+  document.getElementById("paper-line-toggle").checked = true;
+  document.querySelector('.page').classList.add('margined-page');
+  generateImage();
+  textareaEl.style.fontFamily = document.getElementById("handwriting-font").value;
+  textareaEl.style.color = document.getElementById("ink-color").value;
+  textareaEl.style.fontSize = document.getElementById("font-size").value + "pt";
+  textareaEl.style.paddingTop = document.getElementById("top-padding").value + "px";
+  textareaEl.style.wordSpacing = document.getElementById("word-spacing").value + "px";
+}
 
 function readFile(fileObj) {
   const reader = new FileReader();
@@ -18,15 +30,21 @@ function readFile(fileObj) {
 }
 
 function applyPaperStyles() {
+  textareaEl.style.fontFamily = document.getElementById("handwriting-font").value;
+  textareaEl.style.color = document.getElementById("ink-color").value;
+  textareaEl.style.fontSize = document.getElementById("font-size").value + "pt";
+  textareaEl.style.paddingTop = document.getElementById("top-padding").value + "px";
+  textareaEl.style.wordSpacing = document.getElementById("word-spacing").value + "px";
+
   pageContainerEl.style.border = 'none';
   pageContainerEl.style.background = 'linear-gradient(to right,#eee, #ddd)';
   overlayEl.style.background = `linear-gradient(${Math.random()*360}deg, #0008, #0000)`
   overlayEl.style.display = 'block';
-  if (flag == 1) {
+  if (liner.checked == false) {
     textareaEl.classList.remove('paper-lined');
     textareaEl.classList.add('paper');
   }
-  if (flag == 0) {
+  if (liner.checked == true) {
     textareaEl.classList.remove('paper');
     textareaEl.classList.add('paper-lined');
   }
@@ -44,14 +62,14 @@ async function generateImage() {
   applyPaperStyles();
 
   try{
-    const canvas = await html2canvas(document.querySelector(".page"), {
-        scrollX: 0,
-        scrollY: -window.scrollY
-      })
+    const dataURL = await domtoimage.toJpeg(
+      document.querySelector(".page"),
+      {quality: 0.99}
+    )
     
     document.querySelector('.output').innerHTML = '';
     const img = document.createElement('img');
-    img.src = canvas.toDataURL("image/jpeg");
+    img.src = dataURL;
     document.querySelector('.output').appendChild(img);
 
     document.querySelectorAll('a.download-button').forEach(a => {
@@ -81,6 +99,18 @@ document.querySelector("#note").addEventListener('paste', (event) => {
 
 document.querySelector('select#handwriting-font').addEventListener('change', e => {
   textareaEl.style.fontFamily = e.target.value;
+  if (e.target.value == "'Homemade Apple', cursive") {
+    document.getElementById("top-padding").value = 9;
+    textareaEl.style.paddingTop = 9;
+  }
+  if (e.target.value == "'Caveat', cursive") {
+    document.getElementById("top-padding").value = 7;
+    textareaEl.style.paddingTop = 7;
+  }
+  if (e.target.value == "'Liu Jian Mao Cao', cursive") {
+    document.getElementById("top-padding").value = 6;
+    textareaEl.style.paddingTop = 6;
+  }
 })
 
 document.querySelector('select#ink-color').addEventListener('change', e => {
@@ -105,15 +135,6 @@ document.querySelector('#font-file').addEventListener('change', e => {
 
 document.querySelector('#paper-margin-toggle').addEventListener('change', e => {
   document.querySelector('.page').classList.toggle('margined-page');
-})
-
-document.querySelector('#paper-line-toggle').addEventListener('change', e => {
-  if (flag == 0) {
-    flag = 1;
-  }
-  else if (flag == 1) {
-    flag = 0;
-  }
 })
 
 document.querySelector('#year').innerHTML = new Date().getFullYear();
