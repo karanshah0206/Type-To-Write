@@ -56,19 +56,39 @@
       </div>
 
       <div class="col">
-        <label for="paper-margin-toggle">Notebook Margin</label>
+        <label for="paper-lighting-toggle">Natural Lighting Effect</label>
         <label class="switch-toggle outer">
-          <input id="paper-margin-toggle" type="checkbox"/>
+          <input id="paper-lighting-toggle" type="checkbox" checked/>
           <div></div>
         </label>
+        <br><br>
       </div>
-
+    </div>
+    <div class="row responsive-row">
       <div class="col">
         <label for="paper-line-toggle">Notebook Lines</label>
         <label class="switch-toggle outer">
           <input id="paper-line-toggle" type="checkbox" checked/>
           <div></div>
         </label>
+        <br><br>
+      </div>
+
+      <div class="col">
+        <label for="paper-margin-toggle">Notebook Margin</label>
+        <label class="switch-toggle outer">
+          <input id="paper-margin-toggle" type="checkbox"/>
+          <div></div>
+          <br><br>
+        </label>
+      </div>
+
+      <div class="col">
+        <label>Notebook Margin Style</label>
+        <select id="margin-style" style="max-width: 280px;">
+          <option default value="double" >Double-Lined Margin</option>
+          <option value="solid" >Single-Lined Margin</option>
+        </select>
         <br><br>
       </div>
     </div>

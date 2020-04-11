@@ -107,6 +107,30 @@ html, body{
   height: 80px;
 }
 
+.margined-page-solid{
+  width: 560px !important;
+  height: 700px !important;
+  overflow: hidden;
+}
+
+.margined-page-solid .paper-margin-left-line{
+  display: inline-block;
+  width: 80px;
+  border-right: 2px solid rgb(255, 140, 159);
+  height: 200%;
+  top: -100%;
+  position: relative;
+}
+
+.margined-page-solid .paper-margin-top-line{
+  display: block;
+  color: #000F55;
+  font-family: 'Homemade Apple', cursive;
+  width: 100%;
+  border-bottom: 2px solid rgb(255, 140, 159);
+  height: 80px;
+}
+
 .date-container{
   padding: 10px;
   border: 1px solid #d68f9b;

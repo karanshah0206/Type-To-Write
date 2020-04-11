@@ -7,6 +7,8 @@ const liner = document.getElementById("paper-line-toggle");
 function init () {
   document.getElementById("paper-margin-toggle").checked = true;
   document.getElementById("paper-line-toggle").checked = true;
+  document.getElementById("paper-lighting-toggle").checked = true;
+  document.getElementById("margin-style").value = "double";
   document.querySelector('.page').classList.add('margined-page');
   generateImage();
   textareaEl.style.fontFamily = document.getElementById("handwriting-font").value;
@@ -37,9 +39,11 @@ function applyPaperStyles() {
   textareaEl.style.wordSpacing = document.getElementById("word-spacing").value + "px";
 
   pageContainerEl.style.border = 'none';
-  pageContainerEl.style.background = 'linear-gradient(to right,#eee, #ddd)';
-  overlayEl.style.background = `linear-gradient(${Math.random()*360}deg, #0008, #0000)`
-  overlayEl.style.display = 'block';
+  if(document.getElementById("paper-lighting-toggle").checked == true) {
+    pageContainerEl.style.background = 'linear-gradient(to right,#eee, #ddd)';
+    overlayEl.style.background = `linear-gradient(${Math.random()*360}deg, #0008, #0000)`
+    overlayEl.style.display = 'block';
+  }
   if (liner.checked == false) {
     textareaEl.classList.remove('paper-lined');
     textareaEl.classList.add('paper');
@@ -135,6 +139,33 @@ document.querySelector('#font-file').addEventListener('change', e => {
 
 document.querySelector('#paper-margin-toggle').addEventListener('change', e => {
   document.querySelector('.page').classList.toggle('margined-page');
+  if(document.getElementById("paper-margin-toggle").checked == true) {
+    document.getElementById("margin-style").disabled = false;
+    if(document.getElementById("margin-style").value == "double") {
+      document.querySelector('.page').classList.remove('margined-page-solid');
+      document.querySelector('.page').classList.add('margined-page');
+    }
+    if(document.getElementById("margin-style").value == "solid") {
+      document.querySelector('.page').classList.add('margined-page-solid');
+    }
+  }
+  if(document.getElementById("paper-margin-toggle").checked == false) {
+    document.getElementById("margin-style").disabled = true;
+    document.querySelector('.page').classList.remove('margined-page');
+    document.querySelector('.page').classList.remove('margined-page-solid');
+  }
+})
+
+document.querySelector('#margin-style').addEventListener('change', e => {
+  if(document.getElementById("margin-style").disabled == false) {
+    if(document.getElementById("margin-style").value == "double") {
+      document.querySelector('.page').classList.remove('margined-page-solid');
+      document.querySelector('.page').classList.add('margined-page');
+    }
+    if(document.getElementById("margin-style").value == "solid") {
+      document.querySelector('.page').classList.add('margined-page-solid');
+    }
+  }
 })
 
 document.querySelector('#year').innerHTML = new Date().getFullYear();
