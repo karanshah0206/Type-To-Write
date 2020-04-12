@@ -131,14 +131,13 @@ html, body{
   height: 80px;
 }
 
-.date-container{
-  padding: 10px;
-  border: 1px solid #d68f9b;
-  border-radius: 10px;
+#date-container{
   display: inline-block;
-  font-size: 10pt;
+  visibility: hidden;
+  padding: 0;
   margin-top: 20px;
-  margin-right: 20px;
+  margin-left: 10px;
+  font-size: 13px;
 }
 
 .margined-page .paper-content{
