@@ -65,6 +65,7 @@
         <br><br>
       </div>
     </div>
+
     <div class="row responsive-row">
       <div class="col">
         <label for="paper-line-toggle">Notebook Lines</label>
@@ -94,6 +95,39 @@
       </div>
     </div>
 
+    <div class="row responsive-row" id="date-row">
+      <div class="col">
+        <label for="paper-date-toggle">Show Date</label>
+        <label class="switch-toggle outer">
+          <input id="paper-date-toggle" type="checkbox"/>
+          <div></div>
+          <br><br>
+        </label>
+      </div>
+      <div class="col">
+        <label for="date-day">Day</label><br>
+        <input type="number" min="1" max="31"  value="1" id="date-day" class="date-set"/>
+        <br><br>
+      </div>
+      <div class="col">
+        <label for="date-month">Month</label><br>
+        <input type="number" min="1"  max="12" value="1" id="date-month" class="date-set"/>
+        <br><br>
+      </div>
+      <div class="col">
+        <label for="date-year">Year</label><br>
+        <input type="number" min="1000"  max="9999" value="2020" id="date-year" class="date-set"/>
+        <br><br>
+      </div>
+      <div class="col">
+        <label>Date Format</label>
+        <select id="date-format" style="max-width: 200px !important;">
+          <option default value="day">DD/MM/YYYY</option>
+          <option value="month">MM/DD/YYYY</option>
+        </select>
+      </div>
+    </div>
+
     <br/>
     <button class="generate-image">Write it!</button>
     <a class="download-button disabled hide-mobile">Save Your "Written" Work ;)</a> <br/>
@@ -103,9 +137,9 @@
       <div class="col">
         <div class="page">
           <div class="paper-margin-top-line" contenteditable="true">
-            <!-- <span class="date-container">
-              Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </span> -->
+            <span id="date-container">
+              <!-- Date Generates Automatically -->
+            </span>
           </div>
           <div class="textarea row">
             <div class="paper-margin-left-line"></div>

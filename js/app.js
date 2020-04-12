@@ -3,12 +3,25 @@ const pageContainerEl = document.querySelector('.page');
 const textareaEl = document.querySelector('.page > .textarea');
 const overlayEl = document.querySelector('.page > .overlay');
 const liner = document.getElementById("paper-line-toggle");
+var dateTilt = 310;
+var today = new Date();
 
 function init () {
   document.getElementById("paper-margin-toggle").checked = true;
   document.getElementById("paper-line-toggle").checked = true;
   document.getElementById("paper-lighting-toggle").checked = true;
+  document.getElementById("paper-date-toggle").checked = false;
+  document.getElementById("date-day").value = today.getDate();
+  document.getElementById("date-day").disabled = true;
+  document.getElementById("date-month").value = today.getMonth();
+  document.getElementById("date-month").disabled = true;
+  document.getElementById("date-year").value = today.getFullYear();
+  document.getElementById("date-year").disabled = true;
+  document.getElementById("date-format").disabled = true;
   document.getElementById("margin-style").value = "double";
+  dateTilt = randomNr();
+  document.getElementById('date-container').style.transform = "rotate(" + dateTilt + "deg)";
+  document.getElementById('date-container').style.visibility = "hidden";
   document.querySelector('.page').classList.add('margined-page');
   generateImage();
   textareaEl.style.fontFamily = document.getElementById("handwriting-font").value;
@@ -16,6 +29,13 @@ function init () {
   textareaEl.style.fontSize = document.getElementById("font-size").value + "pt";
   textareaEl.style.paddingTop = document.getElementById("top-padding").value + "px";
   textareaEl.style.wordSpacing = document.getElementById("word-spacing").value + "px";
+}
+
+function genRand () {
+  dateTilt = randomNr();
+}
+function randomNr(){
+  return Math.floor(Math.random() * (350 - 300 + 1)) + 300;
 }
 
 function readFile(fileObj) {
@@ -37,6 +57,11 @@ function applyPaperStyles() {
   textareaEl.style.fontSize = document.getElementById("font-size").value + "pt";
   textareaEl.style.paddingTop = document.getElementById("top-padding").value + "px";
   textareaEl.style.wordSpacing = document.getElementById("word-spacing").value + "px";
+
+  if(document.getElementById("paper-date-toggle").checked == true) {
+    dateTilt = randomNr();
+    document.getElementById('date-container').style.transform = "rotate(" + dateTilt + "deg)";
+  }
 
   pageContainerEl.style.border = 'none';
   if(document.getElementById("paper-lighting-toggle").checked == true) {
@@ -71,7 +96,7 @@ async function generateImage() {
   try{
     const dataURL = await domtoimage.toJpeg(
       document.querySelector(".page"),
-      {quality: 0.99}
+      {quality: 1}
     )
     
     document.querySelector('.output').innerHTML = '';
@@ -106,6 +131,7 @@ document.querySelector("#note").addEventListener('paste', (event) => {
 
 document.querySelector('select#handwriting-font').addEventListener('change', e => {
   textareaEl.style.fontFamily = e.target.value;
+  document.getElementById("date-container").style.fontFamily = e.target.value;
   if (e.target.value == "'Homemade Apple', cursive") {
     document.getElementById("top-padding").value = 9;
     textareaEl.style.paddingTop = 9;
@@ -122,6 +148,7 @@ document.querySelector('select#handwriting-font').addEventListener('change', e =
 
 document.querySelector('select#ink-color').addEventListener('change', e => {
   textareaEl.style.color = e.target.value;
+  document.getElementById("date-container").style.color = e.target.value;
 })
 
 document.querySelector('input#font-size').addEventListener('change', e => {
@@ -143,6 +170,7 @@ document.querySelector('#font-file').addEventListener('change', e => {
 document.querySelector('#paper-margin-toggle').addEventListener('change', e => {
   document.querySelector('.page').classList.toggle('margined-page');
   if(document.getElementById("paper-margin-toggle").checked == true) {
+    document.getElementById("date-row").style.display = "flex";
     document.getElementById("margin-style").disabled = false;
     if(document.getElementById("margin-style").value == "double") {
       document.querySelector('.page').classList.remove('margined-page-solid');
@@ -156,6 +184,7 @@ document.querySelector('#paper-margin-toggle').addEventListener('change', e => {
     document.getElementById("margin-style").disabled = true;
     document.querySelector('.page').classList.remove('margined-page');
     document.querySelector('.page').classList.remove('margined-page-solid');
+    document.getElementById("date-row").style.display = "none";
   }
 })
 
@@ -168,6 +197,83 @@ document.querySelector('#margin-style').addEventListener('change', e => {
     if(document.getElementById("margin-style").value == "solid") {
       document.querySelector('.page').classList.add('margined-page-solid');
     }
+  }
+})
+
+document.querySelector("#paper-date-toggle").addEventListener('change', e => {
+  if (document.getElementById("paper-date-toggle").checked == false) {
+    document.getElementById("date-day").disabled = true;
+    document.getElementById("date-month").disabled = true;
+    document.getElementById("date-year").disabled = true;
+    document.getElementById("date-format").disabled = true;
+    document.getElementById("date-container").style.visibility = "hidden";
+  }
+  if (document.getElementById("paper-date-toggle").checked == true) {
+    document.getElementById("date-day").disabled = false;
+    document.getElementById("date-month").disabled = false;
+    document.getElementById("date-year").disabled = false;
+    document.getElementById("date-format").disabled = false;
+    document.getElementById("date-container").style.visibility = "visible";
+    if(document.getElementById("date-format").value == "day") {
+      document.getElementById("date-container").innerHTML = document.getElementById("date-day").value + "/" + document.getElementById("date-month").value + "/" + document.getElementById("date-year").value;
+    }
+    if(document.getElementById("date-format").value == "month") {
+      document.getElementById("date-container").innerHTML = document.getElementById("date-month").value + "/" + document.getElementById("date-day").value + "/" + document.getElementById("date-year").value;
+    }
+  }
+})
+
+document.querySelector("#date-day").addEventListener('change', e => {
+  if(document.getElementById("date-day").value > 31) {
+    document.getElementById("date-day").value = 31;
+  }
+  if(document.getElementById("date-day").value < 1) {
+    document.getElementById("date-day").value = 1;
+  }
+  if(document.getElementById("date-format").value == "day") {
+    document.getElementById("date-container").innerHTML = document.getElementById("date-day").value + "/" + document.getElementById("date-month").value + "/" + document.getElementById("date-year").value;
+  }
+  if(document.getElementById("date-format").value == "month") {
+    document.getElementById("date-container").innerHTML = document.getElementById("date-month").value + "/" + document.getElementById("date-day").value + "/" + document.getElementById("date-year").value;
+  }
+})
+
+document.querySelector("#date-month").addEventListener('change', e => {
+  if(document.getElementById("date-month").value > 12) {
+    document.getElementById("date-month").value = 12;
+  }
+  if(document.getElementById("date-month").value < 1) {
+    document.getElementById("date-month").value = 1;
+  }
+  if(document.getElementById("date-format").value == "day") {
+    document.getElementById("date-container").innerHTML = document.getElementById("date-day").value + "/" + document.getElementById("date-month").value + "/" + document.getElementById("date-year").value;
+  }
+  if(document.getElementById("date-format").value == "month") {
+    document.getElementById("date-container").innerHTML = document.getElementById("date-month").value + "/" + document.getElementById("date-day").value + "/" + document.getElementById("date-year").value;
+  }
+})
+
+document.querySelector("#date-year").addEventListener('change', e => {
+  if(document.getElementById("date-year").value > 9999) {
+    document.getElementById("date-year").value = 9999;
+  }
+  if(document.getElementById("date-year").value < 1000) {
+    document.getElementById("date-year").value = 1000;
+  }
+  if(document.getElementById("date-format").value == "day") {
+    document.getElementById("date-container").innerHTML = document.getElementById("date-day").value + "/" + document.getElementById("date-month").value + "/" + document.getElementById("date-year").value;
+  }
+  if(document.getElementById("date-format").value == "month") {
+    document.getElementById("date-container").innerHTML = document.getElementById("date-month").value + "/" + document.getElementById("date-day").value + "/" + document.getElementById("date-year").value;
+  }
+})
+
+document.querySelector("#date-format").addEventListener('change', e => {
+  if(document.getElementById("date-format").value == "day") {
+    document.getElementById("date-container").innerHTML = document.getElementById("date-day").value + "/" + document.getElementById("date-month").value + "/" + document.getElementById("date-year").value;
+  }
+  if(document.getElementById("date-format").value == "month") {
+    document.getElementById("date-container").innerHTML = document.getElementById("date-month").value + "/" + document.getElementById("date-day").value + "/" + document.getElementById("date-year").value;
   }
 })
 
