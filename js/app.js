@@ -170,6 +170,7 @@ document.querySelector('#font-file').addEventListener('change', e => {
 document.querySelector('#paper-margin-toggle').addEventListener('change', e => {
   document.querySelector('.page').classList.toggle('margined-page');
   if(document.getElementById("paper-margin-toggle").checked == true) {
+    document.getElementById("date-row").style.display = "flex";
     document.getElementById("margin-style").disabled = false;
     if(document.getElementById("margin-style").value == "double") {
       document.querySelector('.page').classList.remove('margined-page-solid');
@@ -183,6 +184,7 @@ document.querySelector('#paper-margin-toggle').addEventListener('change', e => {
     document.getElementById("margin-style").disabled = true;
     document.querySelector('.page').classList.remove('margined-page');
     document.querySelector('.page').classList.remove('margined-page-solid');
+    document.getElementById("date-row").style.display = "none";
   }
 })
 
