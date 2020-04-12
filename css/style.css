@@ -92,7 +92,7 @@ html, body{
 .margined-page .paper-margin-left-line{
   display: inline-block;
   width: 80px;
-  border-right: 2px solid rgb(255, 140, 159);
+  border-right: 5px double rgb(255, 140, 159);
   height: 200%;
   top: -100%;
   position: relative;
