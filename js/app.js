@@ -148,6 +148,7 @@ document.querySelector('select#handwriting-font').addEventListener('change', e =
 
 document.querySelector('select#ink-color').addEventListener('change', e => {
   textareaEl.style.color = e.target.value;
+  document.getElementById("date-container").style.color = e.target.value;
 })
 
 document.querySelector('input#font-size').addEventListener('change', e => {
