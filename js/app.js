@@ -44,6 +44,9 @@ function applyPaperStyles() {
     overlayEl.style.background = `linear-gradient(${Math.random()*360}deg, #0008, #0000)`
     overlayEl.style.display = 'block';
   }
+  if(document.getElementById('paper-lighting-toggle').checked == false) {
+    pageContainerEl.style.background = '#EDEDED';
+  }
   if (liner.checked == false) {
     textareaEl.classList.remove('paper-lined');
     textareaEl.classList.add('paper');
