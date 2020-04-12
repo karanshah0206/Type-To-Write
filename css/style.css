@@ -147,6 +147,7 @@ html, body{
   left: 0px;
   flex: 1;
   padding-left: 10px;
+  padding-right: 5px;
   display: inline-block;
   top: 0px;
 }
