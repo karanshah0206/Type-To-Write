@@ -1,3 +1,4 @@
+// Declaring Variables
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 const pageContainerEl = document.querySelector('.page');
 const textareaEl = document.querySelector('.page > .textarea');
@@ -5,7 +6,9 @@ const overlayEl = document.querySelector('.page > .overlay');
 const liner = document.getElementById("paper-line-toggle");
 var dateTilt = 310;
 var today = new Date();
+var dateState = false;
 
+// Initial Function
 function init () {
   document.getElementById("paper-margin-toggle").checked = true;
   document.getElementById("paper-line-toggle").checked = true;
@@ -31,6 +34,7 @@ function init () {
   textareaEl.style.wordSpacing = document.getElementById("word-spacing").value + "px";
 }
 
+// Random Generator for Date
 function genRand () {
   dateTilt = randomNr();
 }
@@ -38,6 +42,7 @@ function randomNr(){
   return Math.floor(Math.random() * (350 - 300 + 1)) + 300;
 }
 
+// Uploaded Font File Reading
 function readFile(fileObj) {
   const reader = new FileReader();
   reader.onload = e => {
@@ -51,6 +56,7 @@ function readFile(fileObj) {
   reader.readAsArrayBuffer(fileObj)
 }
 
+// Adding Artifiial Paper Styles
 function applyPaperStyles() {
   textareaEl.style.fontFamily = document.getElementById("handwriting-font").value;
   textareaEl.style.color = document.getElementById("ink-color").value;
@@ -82,6 +88,7 @@ function applyPaperStyles() {
   }
 }
 
+// Removing Artificial Paper Styles
 function removePaperStyles() {
   pageContainerEl.style.border = '1px solid #ccc';
   pageContainerEl.style.background = 'linear-gradient(to right,#fff, #fff)';
@@ -90,6 +97,7 @@ function removePaperStyles() {
   textareaEl.classList.remove('paper-lined');
 }
 
+// Generates Output Image
 async function generateImage() {
   applyPaperStyles();
 
@@ -121,6 +129,7 @@ async function generateImage() {
   }
 }
 
+// Adding Character and Event Listeners to Text, Format, and Display Knobs
 document.querySelector("#note").addEventListener('paste', (event) => {
   if(!event.clipboardData.types.includes('Files')) {
     event.preventDefault();
@@ -170,7 +179,8 @@ document.querySelector('#font-file').addEventListener('change', e => {
 document.querySelector('#paper-margin-toggle').addEventListener('change', e => {
   document.querySelector('.page').classList.toggle('margined-page');
   if(document.getElementById("paper-margin-toggle").checked == true) {
-    document.getElementById("date-row").style.display = "flex";
+    document.getElementById("paper-date-toggle").disabled = false;
+    document.getElementById("paper-date-toggle").checked = dateState;
     document.getElementById("margin-style").disabled = false;
     if(document.getElementById("margin-style").value == "double") {
       document.querySelector('.page').classList.remove('margined-page-solid');
@@ -182,9 +192,11 @@ document.querySelector('#paper-margin-toggle').addEventListener('change', e => {
   }
   if(document.getElementById("paper-margin-toggle").checked == false) {
     document.getElementById("margin-style").disabled = true;
+    dateState = document.getElementById("paper-date-toggle").checked;
+    document.getElementById("paper-date-toggle").checked = false;
+    document.getElementById("paper-date-toggle").disabled = true;
     document.querySelector('.page').classList.remove('margined-page');
     document.querySelector('.page').classList.remove('margined-page-solid');
-    document.getElementById("date-row").style.display = "none";
   }
 })
 
@@ -277,10 +289,12 @@ document.querySelector("#date-format").addEventListener('change', e => {
   }
 })
 
-document.querySelector('#year').innerHTML = new Date().getFullYear();
-
 document.querySelector('.generate-image').addEventListener('click', generateImage)
 
+// Gets Year for Footer Copyright
+document.querySelector('#year').innerHTML = today.getFullYear();
+
+// Smooth Scroll Feature
 function smoothlyScrollTo(hashval) {
   let target = document.querySelector(hashval)
   target.scrollIntoView({
@@ -290,9 +304,10 @@ function smoothlyScrollTo(hashval) {
   history.pushState(null, null, hashval)
 }
 
+// Anchor Links
 const anchorlinks = document.querySelectorAll('a[href^="#"]');
 
-for (let item of anchorlinks) { // relitere 
+for (let item of anchorlinks) { 
   item.addEventListener('click', (e)=> {
     let hashval = item.getAttribute('href')
     smoothlyScrollTo(hashval);

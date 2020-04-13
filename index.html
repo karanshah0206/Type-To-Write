@@ -11,69 +11,91 @@
 
 <body onload="init();">
   <main class="form-container">
+    <!-- Head -->
     <center><h1>Type To Write</h1>
     <p>For all those, like me, who hate writing. Simply type in your content in the text box below, and get your assignment in handwriting at the click of a button.</p></center>
     <hr style="background-color: black; border-style: solid;"><br>
 
-    <label for="handwriting-font">Choose Handwriting Font</label>
-    <select id="handwriting-font">
-      <option default value="'Homemade Apple', cursive">Homemade Apple</option>
-      <option value="'Caveat', cursive">Caveat</option>
-      <option value="'Liu Jian Mao Cao', cursive">Liu Jian Mao Cao</option>
-    </select>
-    <br>or<br><br>
-    <label for="font-file">Use Your Own Font <small>(<a target="_blank" rel="noopener noreferer" href="#how-to-add-handwriting">How to upload my own font?</a>)</small></label>
-    <input type="file" id="font-file"/><br>
-    
-    <label>Ink Color</label>
-    <select id="ink-color">
-      <option default value="#000F55" >Blue</option>
-      <option value="#333">Black</option>
-      <option value="#453F49">Pencil</option>
-      <option value="#B20000">Red</option>
-      <option value="#660099">Violet</option>
-      <option value="#CC4400">Orange</option>
-      <option value="#A18B0C">Gold</option>
-      <option value="#78AE39">Green</option>
-    </select><br>
-
+    <!-- Handwriting Selection -->
     <div class="row responsive-row">
       <div class="col">
+        <label for="handwriting-font">Choose Handwriting Font</label>
+        <select id="handwriting-font">
+          <option default value="'Homemade Apple', cursive">Homemade Apple</option>
+          <option value="'Caveat', cursive">Caveat</option>
+          <option value="'Liu Jian Mao Cao', cursive">Liu Jian Mao Cao</option>
+        </select>
+        <br>
+      </div>
+      <div class="col" style="text-align: center;" id="orrer">
+        <br> &#8592; OR &#8594; <br><br>
+      </div>
+      <div class="col" style="text-align: center;" id="orrerrep">
+        &#8593;<br>OR<br>&#8595;<br><br>
+      </div>
+      <div class="col">
+        <label for="font-file">Use Your Own Font <small>(<a target="_blank" rel="noopener noreferer" href="#how-to-add-handwriting">How to upload my own font?</a>)</small></label>
+        <input type="file" id="font-file">
+      </div>
+    </div>
+
+    <br><br>
+
+    <!-- Font Settings -->
+    <div class="row responsive-row">
+      <div class="col">
+        <label>Ink Color</label>
+        <select id="ink-color" style="max-width: 70px;">
+          <option default value="#000F55" >Blue</option>
+          <option value="#333">Black</option>
+          <option value="#453F49">Pencil</option>
+          <option value="#B20000">Red</option>
+          <option value="#660099">Violet</option>
+          <option value="#CC4400">Orange</option>
+          <option value="#A18B0C">Gold</option>
+          <option value="#78AE39">Green</option>
+        </select>
+        <br>
+      </div>
+      
+      <div class="col">
         <label for="font-size">Font Size</label><br>
-        <input type="number" min="0" value="12" id="font-size" />&nbsp; pt
+        <input type="number" min="0" value="12" id="font-size" style="max-width: 70px;"/>
         <br><br>
       </div>
 
       <div class="col">
         <label for="top-padding">Vertical Alignment</label><br>
-        <input type="number" min="0" value="9" id="top-padding" />&nbsp; px
+        <input type="number" min="0" value="9" id="top-padding" style="max-width: 70px;"/>
         <br><br>
       </div>
 
       <div class="col">
         <label for="word-spacing">Word Spacing</label><br>
-        <input type="number" min="0" value="3" id="word-spacing" />&nbsp; px
-        <br><br>
+        <input type="number" min="0" value="3" id="word-spacing" style="max-width: 70px;"/>
       </div>
+    </div>
 
+    <br><br>
+
+    <!-- Paper Settings -->
+    <div class="row responsive-row">
       <div class="col">
         <label for="paper-lighting-toggle">Natural Lighting Effect</label>
         <label class="switch-toggle outer">
           <input id="paper-lighting-toggle" type="checkbox" checked/>
           <div></div>
         </label>
-        <br><br>
+        <br>
       </div>
-    </div>
 
-    <div class="row responsive-row">
       <div class="col">
         <label for="paper-line-toggle">Notebook Lines</label>
         <label class="switch-toggle outer">
           <input id="paper-line-toggle" type="checkbox" checked/>
           <div></div>
         </label>
-        <br><br>
+        <br>
       </div>
 
       <div class="col">
@@ -81,58 +103,63 @@
         <label class="switch-toggle outer">
           <input id="paper-margin-toggle" type="checkbox"/>
           <div></div>
-          <br><br>
         </label>
+        <br>
       </div>
 
       <div class="col">
         <label>Notebook Margin Style</label>
-        <select id="margin-style" style="max-width: 280px;">
+        <select id="margin-style" style="max-width: 180px;">
           <option default value="double" >Double-Lined Margin</option>
           <option value="solid" >Single-Lined Margin</option>
         </select>
-        <br><br>
       </div>
     </div>
 
-    <div class="row responsive-row" id="date-row">
+    <br><br>
+
+    <!-- Date Settings -->
+    <div class="row responsive-row">
       <div class="col">
         <label for="paper-date-toggle">Show Date</label>
         <label class="switch-toggle outer">
           <input id="paper-date-toggle" type="checkbox"/>
           <div></div>
-          <br><br>
         </label>
+        <br>
       </div>
       <div class="col">
         <label for="date-day">Day</label><br>
-        <input type="number" min="1" max="31"  value="1" id="date-day" class="date-set"/>
+        <input type="number" min="1" max="31"  value="1" id="date-day" class="date-set" style="max-width: 70px;"/>
         <br><br>
       </div>
       <div class="col">
         <label for="date-month">Month</label><br>
-        <input type="number" min="1"  max="12" value="1" id="date-month" class="date-set"/>
+        <input type="number" min="1"  max="12" value="1" id="date-month" class="date-set" style="max-width: 70px;"/>
         <br><br>
       </div>
       <div class="col">
         <label for="date-year">Year</label><br>
-        <input type="number" min="1000"  max="9999" value="2020" id="date-year" class="date-set"/>
+        <input type="number" min="1000"  max="9999" value="2020" id="date-year" class="date-set" style="max-width: 70px;"/>
         <br><br>
       </div>
       <div class="col">
         <label>Date Format</label>
-        <select id="date-format" style="max-width: 200px !important;">
+        <select id="date-format" style="max-width: 130px;">
           <option default value="day">DD/MM/YYYY</option>
           <option value="month">MM/DD/YYYY</option>
         </select>
       </div>
     </div>
 
-    <br/>
-    <button class="generate-image">Write it!</button>
-    <a class="download-button disabled hide-mobile">Save Your "Written" Work ;)</a> <br/>
     <br><br>
+
+    <!-- Command Buttons -->
+    <button class="generate-image">Write it!</button>
+    <a class="download-button disabled hide-mobile">Save Your "Written" Work ;)</a>
+    <br><br><br>
     
+    <!-- Input and Output -->
     <div class="row output-grid responsive-row">
       <div class="col">
         <div class="page">
@@ -152,12 +179,14 @@
       </div>
   
       <div id="output" class="col output">
-        
+        <!-- Image Generates Automatically -->
       </div>
     </div>
     
+    <!-- Download Button Responsive -->
     <br><a class="download-button disabled hide-pc">Save Your "Written" Work ;)</a><br><br>
     
+    <!-- Personalized Handwriting Guide -->
     <hr>
     <div class="guide" id="how-to-add-handwriting">
       <h2>A Guide to Personalized Handwriting</h2>
@@ -171,12 +200,13 @@
     <hr>
   </main>
   
+  <!-- Footer -->
   <footer style="text-align: center; background-color: #222; color: #ddd;padding: 24px 30px; font-size: 12px; font-family:Arial, Helvetica, sans-serif;">
     Made with ♥ in Pune | Copyright © <span id="year"></span> <a href="https://sites.google.com/view/karanmshah" target="_blank" style="text-decoration: none; color: #bbb; font-style: Arial, Helvetica, sans-serif">Karan Shah</a>
   </footer>
 
+  <!-- Javascript -->
   <script defer src="./lib/dom-to-image.min.js"></script>
   <script defer src="./js/app.js"></script>
 </body>
-
 </html>
