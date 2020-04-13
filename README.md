@@ -11,4 +11,4 @@ Keep in mind that this is very much in its BETA stage. Feel free to join me @ Gi
 Created with ♥ for students, by a student.
 
 # Snapshot
-![Snapshot](img/snap.jpg)
+![Snapshot](img/snapshot.jpg)
