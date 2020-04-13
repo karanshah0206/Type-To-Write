@@ -296,4 +296,15 @@ html, body{
   .hide-mobile{
     display: none;
   }
+  #orrer {
+    display: none;
+  }
+  #orrerrep {
+    display: block;
+  }
+}
+@media (min-width: 768px) {
+  #orrerrep {
+    display: none;
+  }
 }

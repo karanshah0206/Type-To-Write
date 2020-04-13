@@ -17,15 +17,29 @@
     <hr style="background-color: black; border-style: solid;"><br>
 
     <!-- Handwriting Selection -->
-    <label for="handwriting-font">Choose Handwriting Font</label>
-    <select id="handwriting-font">
-      <option default value="'Homemade Apple', cursive">Homemade Apple</option>
-      <option value="'Caveat', cursive">Caveat</option>
-      <option value="'Liu Jian Mao Cao', cursive">Liu Jian Mao Cao</option>
-    </select>
-    <br>or<br><br>
-    <label for="font-file">Use Your Own Font <small>(<a target="_blank" rel="noopener noreferer" href="#how-to-add-handwriting">How to upload my own font?</a>)</small></label>
-    <input type="file" id="font-file"/><br><br>
+    <div class="row responsive-row">
+      <div class="col">
+        <label for="handwriting-font">Choose Handwriting Font</label>
+        <select id="handwriting-font">
+          <option default value="'Homemade Apple', cursive">Homemade Apple</option>
+          <option value="'Caveat', cursive">Caveat</option>
+          <option value="'Liu Jian Mao Cao', cursive">Liu Jian Mao Cao</option>
+        </select>
+        <br>
+      </div>
+      <div class="col" style="text-align: center;" id="orrer">
+        <br> &#8592; OR &#8594; <br><br>
+      </div>
+      <div class="col" style="text-align: center;" id="orrerrep">
+        &#8593;<br>OR<br>&#8595;<br><br>
+      </div>
+      <div class="col">
+        <label for="font-file">Use Your Own Font <small>(<a target="_blank" rel="noopener noreferer" href="#how-to-add-handwriting">How to upload my own font?</a>)</small></label>
+        <input type="file" id="font-file">
+      </div>
+    </div>
+
+    <br><br>
 
     <!-- Font Settings -->
     <div class="row responsive-row">
