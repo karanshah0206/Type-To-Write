@@ -5,6 +5,7 @@ const overlayEl = document.querySelector('.page > .overlay');
 const liner = document.getElementById("paper-line-toggle");
 var dateTilt = 310;
 var today = new Date();
+var dateState = false;
 
 function init () {
   document.getElementById("paper-margin-toggle").checked = true;
@@ -170,7 +171,8 @@ document.querySelector('#font-file').addEventListener('change', e => {
 document.querySelector('#paper-margin-toggle').addEventListener('change', e => {
   document.querySelector('.page').classList.toggle('margined-page');
   if(document.getElementById("paper-margin-toggle").checked == true) {
-    document.getElementById("date-row").style.display = "flex";
+    document.getElementById("paper-date-toggle").disabled = false;
+    document.getElementById("paper-date-toggle").checked = dateState;
     document.getElementById("margin-style").disabled = false;
     if(document.getElementById("margin-style").value == "double") {
       document.querySelector('.page').classList.remove('margined-page-solid');
@@ -182,9 +184,11 @@ document.querySelector('#paper-margin-toggle').addEventListener('change', e => {
   }
   if(document.getElementById("paper-margin-toggle").checked == false) {
     document.getElementById("margin-style").disabled = true;
+    dateState = document.getElementById("paper-date-toggle").checked;
+    document.getElementById("paper-date-toggle").checked = false;
+    document.getElementById("paper-date-toggle").disabled = true;
     document.querySelector('.page').classList.remove('margined-page');
     document.querySelector('.page').classList.remove('margined-page-solid');
-    document.getElementById("date-row").style.display = "none";
   }
 })
 
