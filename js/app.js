@@ -153,6 +153,26 @@ document.querySelector('select#handwriting-font').addEventListener('change', e =
     document.getElementById("top-padding").value = 6;
     textareaEl.style.paddingTop = 6;
   }
+  if (e.target.value == "'Shadows Into Light', cursive") {
+    document.getElementById("top-padding").value = 7;
+    textareaEl.style.paddingTop = 7;
+  }
+  if (e.target.value == "'Satisfy', cursive") {
+    document.getElementById("top-padding").value = 9;
+    textareaEl.style.paddingTop = 9;
+  }
+  if (e.target.value == "'Nanum Brush Script', cursive") {
+    document.getElementById("top-padding").value = 11;
+    textareaEl.style.paddingTop = 11;
+  }
+  if (e.target.value == "'Zeyada', cursive") {
+    document.getElementById("top-padding").value = 11;
+    textareaEl.style.paddingTop = 11;
+  }
+  if (e.target.value == "'Gaegu', cursive") {
+    document.getElementById("top-padding").value = 9;
+    textareaEl.style.paddingTop = 9;
+  }
 })
 
 document.querySelector('select#ink-color').addEventListener('change', e => {
