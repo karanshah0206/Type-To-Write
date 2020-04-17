@@ -6,7 +6,8 @@ const overlayEl = document.querySelector('.page > .overlay');
 const liner = document.getElementById("paper-line-toggle");
 var dateTilt = 310;
 var today = new Date();
-var dateState = false;
+var dateState = 0;
+var dateBool = true;
 
 // Initial Function
 function init () {
@@ -21,7 +22,6 @@ function init () {
   document.getElementById("date-year").value = today.getFullYear();
   document.getElementById("date-year").disabled = true;
   document.getElementById("date-format").disabled = true;
-  document.getElementById("margin-style").value = "double";
   dateTilt = randomNr();
   document.getElementById('date-container').style.transform = "rotate(" + dateTilt + "deg)";
   document.getElementById('date-container').style.visibility = "hidden";
@@ -58,7 +58,6 @@ function readFile(fileObj) {
 
 // Adding Artifiial Paper Styles
 function applyPaperStyles() {
-  textareaEl.style.fontFamily = document.getElementById("handwriting-font").value;
   textareaEl.style.color = document.getElementById("ink-color").value;
   textareaEl.style.fontSize = document.getElementById("font-size").value + "pt";
   textareaEl.style.paddingTop = document.getElementById("top-padding").value + "px";
@@ -102,14 +101,14 @@ async function generateImage() {
   applyPaperStyles();
 
   try{
-    const dataURL = await domtoimage.toJpeg(
-      document.querySelector(".page"),
-      {quality: 1}
-    )
+    const canvas = await html2canvas(document.querySelector(".page"), {
+      scrollX: 0,
+      scrollY: -window.scrollY
+    })
     
     document.querySelector('.output').innerHTML = '';
     const img = document.createElement('img');
-    img.src = dataURL;
+    img.src = canvas.toDataURL("img/jpeg");
     document.querySelector('.output').appendChild(img);
 
     document.querySelectorAll('a.download-button').forEach(a => {
@@ -142,8 +141,8 @@ document.querySelector('select#handwriting-font').addEventListener('change', e =
   textareaEl.style.fontFamily = e.target.value;
   document.getElementById("date-container").style.fontFamily = e.target.value;
   if (e.target.value == "'Homemade Apple', cursive") {
-    document.getElementById("top-padding").value = 9;
-    textareaEl.style.paddingTop = 9;
+    document.getElementById("top-padding").value = 2;
+    textareaEl.style.paddingTop = 2;
   }
   if (e.target.value == "'Caveat', cursive") {
     document.getElementById("top-padding").value = 7;
@@ -154,20 +153,16 @@ document.querySelector('select#handwriting-font').addEventListener('change', e =
     textareaEl.style.paddingTop = 6;
   }
   if (e.target.value == "'Shadows Into Light', cursive") {
+    document.getElementById("top-padding").value = 4;
+    textareaEl.style.paddingTop = 4;
+  }
+  if (e.target.value == "'Satisfy', cursive") {
     document.getElementById("top-padding").value = 7;
     textareaEl.style.paddingTop = 7;
   }
-  if (e.target.value == "'Satisfy', cursive") {
-    document.getElementById("top-padding").value = 9;
-    textareaEl.style.paddingTop = 9;
-  }
-  if (e.target.value == "'Nanum Brush Script', cursive") {
-    document.getElementById("top-padding").value = 11;
-    textareaEl.style.paddingTop = 11;
-  }
   if (e.target.value == "'Zeyada', cursive") {
-    document.getElementById("top-padding").value = 11;
-    textareaEl.style.paddingTop = 11;
+    document.getElementById("top-padding").value = 7;
+    textareaEl.style.paddingTop = 7;
   }
   if (e.target.value == "'Gaegu', cursive") {
     document.getElementById("top-padding").value = 9;
@@ -198,37 +193,15 @@ document.querySelector('#font-file').addEventListener('change', e => {
 
 document.querySelector('#paper-margin-toggle').addEventListener('change', e => {
   document.querySelector('.page').classList.toggle('margined-page');
-  if(document.getElementById("paper-margin-toggle").checked == true) {
+  dateState += 1;
+  if(dateState%2 == 0) {
     document.getElementById("paper-date-toggle").disabled = false;
-    document.getElementById("paper-date-toggle").checked = dateState;
-    document.getElementById("margin-style").disabled = false;
-    if(document.getElementById("margin-style").value == "double") {
-      document.querySelector('.page').classList.remove('margined-page-solid');
-      document.querySelector('.page').classList.add('margined-page');
-    }
-    if(document.getElementById("margin-style").value == "solid") {
-      document.querySelector('.page').classList.add('margined-page-solid');
-    }
+    document.getElementById("paper-date-toggle").checked = dateBool;
   }
-  if(document.getElementById("paper-margin-toggle").checked == false) {
-    document.getElementById("margin-style").disabled = true;
-    dateState = document.getElementById("paper-date-toggle").checked;
-    document.getElementById("paper-date-toggle").checked = false;
+  else {
     document.getElementById("paper-date-toggle").disabled = true;
-    document.querySelector('.page').classList.remove('margined-page');
-    document.querySelector('.page').classList.remove('margined-page-solid');
-  }
-})
-
-document.querySelector('#margin-style').addEventListener('change', e => {
-  if(document.getElementById("margin-style").disabled == false) {
-    if(document.getElementById("margin-style").value == "double") {
-      document.querySelector('.page').classList.remove('margined-page-solid');
-      document.querySelector('.page').classList.add('margined-page');
-    }
-    if(document.getElementById("margin-style").value == "solid") {
-      document.querySelector('.page').classList.add('margined-page-solid');
-    }
+    dateBool = document.getElementById("paper-date-toggle").checked;
+    document.getElementById("paper-date-toggle").checked = false;
   }
 })
 
