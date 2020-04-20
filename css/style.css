@@ -139,6 +139,12 @@ html, body{
 .col{
   flex: 1;
 }
+.col a {
+  color: #09f;
+}
+.col a:hover {
+  color: #2288aa;
+}
 
 /* Wrapper */
 .form-container{
@@ -194,13 +200,13 @@ html, body{
 .switch-toggle div {
 	position: absolute;
 	border-radius: 50%;
-	background-color: #DFDFDF;
+	background-color: rgb(173, 240, 161);
 	transition: .1s ease;
 }
 
 .switch-toggle input:checked + div {
 	left: 50%;
-	background-color: #09f;
+	background-color: #28a745;
 }
 
 .switch-toggle.rect {
@@ -227,11 +233,36 @@ html, body{
 	
 }
 
+/* Select */
+#ink-color option {
+  background-color: #EDEDED;
+  font-weight: bolder;
+}
+#ink-color option:checked {
+  color: orange;
+}
+
+/* Guide */
+.guide a {
+  color: #09f;
+}
+.guide a:hover {
+  color: #2288aa;
+}
+
+/* Dividers */
+hr {
+  border-style: solid;
+  background-color: rgb(165, 42, 42);
+  border-color: rgb(165, 42, 42);
+}
+
 /* Download Button */
 .download-button{
   display: inline-block;
   text-decoration: none;
-  background-color: #09f;
+  /* background-color: #09f; */
+  background-color: #28a745;
   color: #fff;
   padding: 10px 15px;
   font-weight: bold;
@@ -250,6 +281,13 @@ html, body{
 
 .hide-mobile{
   display: initial;
+}
+
+#orrer {
+  color: red;
+}
+#orrerrep {
+  color: red;
 }
 
 @media (max-width: 768px){

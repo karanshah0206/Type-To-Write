@@ -13,14 +13,14 @@
 <body onload="init();">
   <main class="form-container">
     <!-- Head -->
-    <center><h1>Type To Write</h1>
+    <center><h1><font style="color: #09f;">Type</font> <font style="color: rgb(255, 0, 0);">To</font> <font style="color: #28a745;">Write</font></h1>
     <p>For all those, like me, who hate writing. Simply type in your content in the text box below, and get your assignment in handwriting at the click of a button.</p></center>
-    <hr style="background-color: black; border-style: solid;"><br>
+    <hr><br>
 
     <!-- Handwriting Selection -->
     <div class="row responsive-row">
       <div class="col">
-        <label for="handwriting-font">Choose Handwriting Font</label>
+        <label for="handwriting-font" title="Set a Font Family for your text.">Choose Handwriting Font</label>
         <select id="handwriting-font">
           <option default value="'Homemade Apple', cursive">Homemade Apple</option>
           <option value="'Caveat', cursive">Caveat</option>
@@ -39,7 +39,7 @@
         &#8593;<br>OR<br>&#8595;<br><br>
       </div>
       <div class="col">
-        <label for="font-file">Use Your Own Font <small>(<a target="_blank" rel="noopener noreferer" href="#how-to-add-handwriting">How to upload my own font?</a>)</small></label>
+        <label for="font-file" title="Upload a custom Font Family for your text.">Use Your Own Font <small>(<a target="_blank" rel="noopener noreferer" href="#how-to-add-handwriting">How to upload my own font?</a>)</small></label>
         <input type="file" id="font-file">
       </div>
     </div>
@@ -49,34 +49,34 @@
     <!-- Font Settings -->
     <div class="row responsive-row">
       <div class="col">
-        <label>Ink Color</label>
+        <label title="Select the color of your ink.">Ink Color</label>
         <select id="ink-color" style="max-width: 70px;">
-          <option default value="#000F55" >Blue</option>
-          <option value="#333">Black</option>
-          <option value="#453F49">Pencil</option>
-          <option value="#B20000">Red</option>
-          <option value="#660099">Violet</option>
-          <option value="#CC4400">Orange</option>
-          <option value="#A18B0C">Gold</option>
-          <option value="#78AE39">Green</option>
+          <option default value="#000F55" style="color: rgb(13, 46, 197);">Blue</option>
+          <option value="#333" style="color: #333">Black</option>
+          <option value="#453F49" style="color: #453F49">Pencil</option>
+          <option value="#B20000" style="color: #B20000">Red</option>
+          <option value="#660099" style="color: #660099">Violet</option>
+          <option value="#CC4400" style="color: #CC4400">Orange</option>
+          <option value="#A18B0C" style="color: #A18B0C">Gold</option>
+          <option value="#78AE39" style="color: #78AE39">Green</option>
         </select>
         <br>
       </div>
       
       <div class="col">
-        <label for="font-size">Font Size</label><br>
+        <label for="font-size" title="Set the Font Size of your text.">Font Size</label><br>
         <input type="number" min="0" value="12" id="font-size" style="max-width: 70px;"/>
         <br><br>
       </div>
 
       <div class="col">
-        <label for="top-padding">Vertical Alignment</label><br>
+        <label for="top-padding" title="If the text is not properly sitting on the notebook lines, adjust Vertical Adjustment.">Vertical Alignment</label><br>
         <input type="number" min="0" value="2" id="top-padding" style="max-width: 70px;"/>
         <br><br>
       </div>
 
       <div class="col">
-        <label for="word-spacing">Word Spacing</label><br>
+        <label for="word-spacing" title="Set the gap between words when you use space bar.">Word Spacing</label><br>
         <input type="number" min="0" value="3" id="word-spacing" style="max-width: 70px;"/>
       </div>
     </div>
@@ -86,7 +86,7 @@
     <!-- Paper Settings -->
     <div class="row responsive-row">
       <div class="col">
-        <label for="paper-lighting-toggle">Natural Lighting Effect</label>
+        <label for="paper-lighting-toggle" title="Choose if you want to make this look like a phone-scanned document or save it as is.">Natural Lighting Effect</label>
         <label class="switch-toggle outer">
           <input id="paper-lighting-toggle" type="checkbox" checked/>
           <div></div>
@@ -95,7 +95,7 @@
       </div>
 
       <div class="col">
-        <label for="paper-line-toggle">Notebook Lines</label>
+        <label for="paper-line-toggle" title="Choose if you want lines on which the text sits.">Notebook Lines</label>
         <label class="switch-toggle outer">
           <input id="paper-line-toggle" type="checkbox" checked/>
           <div></div>
@@ -104,7 +104,7 @@
       </div>
 
       <div class="col">
-        <label for="paper-margin-toggle">Notebook Margin</label>
+        <label for="paper-margin-toggle" title="Choose if you want the margins on the left and top which notebooks usually have.">Notebook Margin</label>
         <label class="switch-toggle outer">
           <input id="paper-margin-toggle" type="checkbox"/>
           <div></div>
@@ -118,7 +118,7 @@
     <!-- Date Settings -->
     <div class="row responsive-row">
       <div class="col">
-        <label for="paper-date-toggle">Show Date</label>
+        <label for="paper-date-toggle" title="Choose if you want to show date in your notebook (works only when margins are active).">Show Date</label>
         <label class="switch-toggle outer">
           <input id="paper-date-toggle" type="checkbox"/>
           <div></div>
@@ -126,22 +126,22 @@
         <br>
       </div>
       <div class="col">
-        <label for="date-day">Day</label><br>
+        <label for="date-day" title="Date Day">Day</label><br>
         <input type="number" min="1" max="31"  value="1" id="date-day" class="date-set" style="max-width: 70px;"/>
         <br><br>
       </div>
       <div class="col">
-        <label for="date-month">Month</label><br>
+        <label for="date-month" title="Date Month">Month</label><br>
         <input type="number" min="1"  max="12" value="1" id="date-month" class="date-set" style="max-width: 70px;"/>
         <br><br>
       </div>
       <div class="col">
-        <label for="date-year">Year</label><br>
+        <label for="date-year" title="Date Year">Year</label><br>
         <input type="number" min="1000"  max="9999" value="2020" id="date-year" class="date-set" style="max-width: 70px;"/>
         <br><br>
       </div>
       <div class="col">
-        <label>Date Format</label>
+        <label title="Select the format of your date (DD/MM/YYYY)/(MM/DD/YYYY).">Date Format</label>
         <select id="date-format" style="max-width: 130px;">
           <option default value="day">DD/MM/YYYY</option>
           <option value="month">MM/DD/YYYY</option>
@@ -193,7 +193,7 @@
         <li>Ensure that you upload fonts in TTF format.</li>
       </ul>
       <font style="font-weight: bold;">ATTENTION!</font> The personalized handwriting feature is still in BETA. Feel free to contribute at <a href="https://www.github.com/karanshah0206" target="_blank"><img src="img/GitHub_Logo.png" style="max-width: 50px !important;"></a>.
-    </div>
+    </div><br>
     <hr>
   </main>
   
