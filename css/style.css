@@ -58,6 +58,10 @@ html, body{
   position: relative;
 }
 
+u {
+  text-decoration: none !important;
+}
+
 .overlay{
   position: absolute;
   top:0;left:0;
