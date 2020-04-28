@@ -11,6 +11,7 @@ var dateBool = true;
 
 // Initial Function
 function init () {
+  document.getElementById('equation-hover').style.display = "none";
   document.getElementById("paper-margin-toggle").checked = true;
   document.getElementById("paper-line-toggle").checked = true;
   document.getElementById("paper-lighting-toggle").checked = true;
@@ -128,6 +129,23 @@ async function generateImage() {
   }
 }
 
+// Equation Functionality
+function eqcopier(superc) {
+  document.getElementById("eqcop").style.visibility = "visible";
+  var eqtb = document.getElementById("eqcop");
+  eqtb.value = superc;
+  eqtb.select();
+  eqtb.setSelectionRange(0, 99999);
+  try {
+    document.execCommand("copy");
+    console.log(eqtb.value);
+  } catch { 
+    alert("Cannot COPY!");
+  }
+  document.getElementById("eqcop").style.visibility = "hidden";
+  document.getElementById('equation-hover').style.display = "none";
+}
+
 // Adding Character and Event Listeners to Text, Format, and Display Knobs
 document.querySelector("#note").addEventListener('paste', (event) => {
   if(!event.clipboardData.types.includes('Files')) {
@@ -226,6 +244,20 @@ document.querySelector("#paper-date-toggle").addEventListener('change', e => {
       document.getElementById("date-container").innerHTML = document.getElementById("date-month").value + "/" + document.getElementById("date-day").value + "/" + document.getElementById("date-year").value;
     }
   }
+})
+
+document.querySelector('.equation-palette').addEventListener('click', e => {
+  if(document.getElementById('equation-hover').style.display == "none") {
+    document.getElementById('equation-hover').style.display = "unset";
+  }
+  else if(document.getElementById('equation-hover').style.display != "none") {
+    document.getElementById('equation-hover').style.display = "none";
+  }
+})
+
+document.querySelector('.close-icon').addEventListener('click', e => {
+  document.getElementById('equation-hover').style.display = "none";
+  console.log(document.querySelector('.close-icon').value);
 })
 
 document.querySelector("#date-day").addEventListener('change', e => {
