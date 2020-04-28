@@ -17,6 +17,55 @@
     <p>For all those, like me, who hate writing. Simply type in your content in the text box below, and get your assignment in handwriting at the click of a button.</p></center>
     <hr><br>
 
+    <!-- Equation Hover -->
+    <input type="text" id="eqcop" value="">
+    <div id="equation-hover">
+      <button class="close-icon" title="Close equation palette">X</button>
+      <button class="matheq" value="+" onclick="eqcopier('+');">+</button>
+      <button class="matheq" value="−" onclick="eqcopier('−');">−</button>
+      <button class="matheq" value="±" onclick="eqcopier('±');">±</button>
+      <button class="matheq" value="∓" onclick="eqcopier('∓');">∓</button>
+      <button class="matheq" value="×" onclick="eqcopier('×');">×</button>
+      <button class="matheq" value="⋅" onclick="eqcopier('⋅');">⋅</button>
+      <button class="matheq" value="÷" onclick="eqcopier('÷');">÷</button>
+      <button class="matheq" value="√" onclick="eqcopier('√');">√</button>
+      <button class="matheq" value="∑" onclick="eqcopier('∑');">∑</button>
+      <button class="matheq" value="∫" onclick="eqcopier('∫');">∫</button>
+      <button class="matheq" value="∮" onclick="eqcopier('∮');">∮</button>
+      <button class="matheq" value="∴" onclick="eqcopier('∴');">∴</button>
+      <button class="matheq" value="∵" onclick="eqcopier('∵');">∵</button>
+      <button class="matheq" value="∝" onclick="eqcopier('∝');">∝</button>
+      <button class="matheq" value="∞" onclick="eqcopier('∞');">∞</button>
+      <button class="matheq" value="=" onclick="eqcopier('=');">=</button>
+      <button class="matheq" value="≠" onclick="eqcopier('≠');">≠</button>
+      <button class="matheq" value="≈" onclick="eqcopier('≈');">≈</button>
+      <button class="matheq" value="~" onclick="eqcopier('~');">~</button>
+      <button class="matheq" value="≡" onclick="eqcopier('≡');">≡</button>
+      <button class="matheq" value="⇔" onclick="eqcopier('⇔');">⇔</button>
+      <button class="matheq" value="↦" onclick="eqcopier('↦');">↦</button>
+      <button class="matheq" value="⇒" onclick="eqcopier('⇒');">⇒</button>
+      <button class="matheq" value="≅" onclick="eqcopier('≅');">≅</button>
+      <button class="matheq" value="↔" onclick="eqcopier('↔');">↔</button>
+      <button class="matheq" value="≤" onclick="eqcopier('≤');">≤</button>
+      <button class="matheq" value="≥" onclick="eqcopier('≥');">≥</button>
+      <button class="matheq" value="≪" onclick="eqcopier('≪');">≪</button>
+      <button class="matheq" value="≫" onclick="eqcopier('≫');">≫</button>
+      <button class="matheq" value="⊃" onclick="eqcopier('⊃');">⊃</button>
+      <button class="matheq" value="⊂" onclick="eqcopier('⊂');">⊂</button>
+      <button class="matheq" value="⊆" onclick="eqcopier('⊆');">⊆</button>
+      <button class="matheq" value="⊇" onclick="eqcopier('⊇');">⊇</button>
+      <button class="physeq" value="∝" onclick="eqcopier('∝');">∝</button>
+      <button class="physeq" value="β" onclick="eqcopier('β');">β</button>
+      <button class="physeq" value="γ" onclick="eqcopier('γ');">γ</button>
+      <button class="physeq" value="θ" onclick="eqcopier('θ');">θ</button>
+      <button class="chemeq" value="→" onclick="eqcopier('→');">→</button>
+      <button class="chemeq" value="⇌" onclick="eqcopier('⇌');">⇌</button>
+      <button class="chemeq" value="↑" onclick="eqcopier('↑');">↑</button>
+      <button class="chemeq" value="Δ" onclick="eqcopier('Δ');">Δ</button>
+      <p style="color: white;">Symbol will be COPIED.</p>
+      <font style="color: rgb(0, 153, 255);">Math</font> <font style="color: #563D7C;">Physics</font> <font style="color: rgb(84, 221, 91);">Chem</font>
+    </div>
+
     <!-- Handwriting Selection -->
     <div class="row responsive-row">
       <div class="col">
@@ -153,6 +202,7 @@
 
     <!-- Command Buttons -->
     <button class="generate-image">Write it!</button>
+    <button class="equation-palette">Equation Palette</button>
     <a class="download-button disabled hide-mobile">Save Your "Written" Work ;)</a>
     <br><br><br>
     
