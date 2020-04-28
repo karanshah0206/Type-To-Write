@@ -11,6 +11,46 @@ html, body{
   color: #333;
 }
 
+/* Equation Palette */
+#equation-hover {
+  width: 80% !important;
+  position: fixed;
+  top: 0;
+  padding: 20px;
+  background-color: grey;
+  z-index: 3;
+}
+
+#eqcop {
+  visibility: hidden;
+}
+
+.matheq {
+  background-color: rgb(0, 153, 255) !important;
+}
+
+.physeq {
+  background-color: #563D7C !important;
+}
+
+.chemeq {
+  background-color: rgb(84, 221, 91) !important;
+}
+
+.close-icon {
+  background-color: red !important;
+}
+
+#equation-hover button {
+  height: 40px !important;
+  width: 40px !important;
+  padding: 0;
+  margin: 5px;
+}
+.equation-toggler {
+  display: none !important;
+}
+
 /* Page and Paper */
 .page{
   padding: 10px;
@@ -56,6 +96,10 @@ html, body{
   box-sizing: border-box;
   word-spacing: 3px;
   position: relative;
+}
+
+u {
+  text-decoration: none !important;
 }
 
 .overlay{
@@ -140,7 +184,7 @@ html, body{
   flex: 1;
 }
 .col a {
-  color: #09f;
+  color: rgb(0, 153, 255);
 }
 .col a:hover {
   color: #2288aa;
@@ -174,7 +218,7 @@ html, body{
 
 .form-container button{
   border: none;
-  background-color: #09f;
+  background-color: rgb(0, 153, 255);
   padding: 10px;
   color: #fff;
   font-weight: bold;
@@ -244,7 +288,7 @@ html, body{
 
 /* Guide */
 .guide a {
-  color: #09f;
+  color: rgb(0, 153, 255);
 }
 .guide a:hover {
   color: #2288aa;
@@ -261,7 +305,6 @@ hr {
 .download-button{
   display: inline-block;
   text-decoration: none;
-  /* background-color: #09f; */
   background-color: #28a745;
   color: #fff;
   padding: 10px 15px;
@@ -315,6 +358,14 @@ hr {
   }
   #orrerrep {
     display: block;
+  }
+  #equation-hover {
+    padding: 10px;
+  }
+  #equation-hover button {
+    height: 35px !important;
+    width: 35px !important;
+    margin: 3px;
   }
 }
 @media (min-width: 768px) {
