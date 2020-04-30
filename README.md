@@ -1,5 +1,7 @@
 # Type To Write
 
+Convert Text To Handwriting Online (Free!)
+
 In this new era of typing and video games, writing homework has become the new unfavorite. People, like myself, cringe when asked to submit a written assignment.
 
 If that sounds like you, this is for you!
