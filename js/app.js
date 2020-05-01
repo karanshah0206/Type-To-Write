@@ -162,6 +162,10 @@ document.querySelector('select#handwriting-font').addEventListener('change', e =
     document.getElementById("top-padding").value = 2;
     textareaEl.style.paddingTop = 2;
   }
+  if (e.target.value == "'Cedarville Cursive', cursive") {
+    document.getElementById("top-padding").value = 2;
+    textareaEl.style.paddingTop = 2;
+  }
   if (e.target.value == "'Caveat', cursive") {
     document.getElementById("top-padding").value = 7;
     textareaEl.style.paddingTop = 7;
