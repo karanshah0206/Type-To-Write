@@ -123,8 +123,7 @@ async function generateImage() {
       a.classList.remove('disabled');
     })
   }catch(err) {
-    alert("Something went wrong :(");
-    console.error(err);
+    alert("An Error Occured: " + err);
   }
 
   removePaperStyles();
