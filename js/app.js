@@ -35,7 +35,7 @@ function init () {
   textareaEl.style.wordSpacing = document.getElementById("word-spacing").value + "px";
 }
 
-// Random Generator for Date
+// Random Tilt Generator for Date
 function genRand () {
   dateTilt = randomNr();
 }
