@@ -117,6 +117,11 @@ async function generateImage() {
       a.download = 'assignment';
       a.classList.remove('disabled');
     })
+    document.querySelectorAll('a.pdf-button').forEach(a => {
+      a.href = img.src;
+      a.download = 'assignment';
+      a.classList.remove('disabled');
+    })
   }catch(err) {
     alert("Something went wrong :(");
     console.error(err);
