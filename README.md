@@ -15,3 +15,5 @@ Created with ♥ for students, by a student.
 
 # Snapshot
 ![Snapshot](img/snapshot.jpg)
+
+Feel free to contribute!
