@@ -118,9 +118,17 @@ async function generateImage() {
       a.classList.remove('disabled');
     })
     document.querySelectorAll('a.pdf-button').forEach(a => {
-      a.href = img.src;
-      a.download = 'assignment';
       a.classList.remove('disabled');
+    })
+    document.getElementById('pdf-button-large').addEventListener('click', () => {
+      var doc = new jsPDF();
+      doc.text('Hello, World!', 10, 10);
+      doc.save('assignment.pdf');
+    })
+    document.getElementById('pdf-button-small').addEventListener('click', () => {
+      var doc = new jsPDF();
+      doc.text('Hello, World!', 10, 10);
+      doc.save('assignment.pdf');
     })
   }catch(err) {
     alert("An Error Occured: " + err);
