@@ -385,6 +385,27 @@ hr {
   }
 }
 
+/* Information Button */
+#info-button {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  height: 25px;
+  width: 25px;
+}
+
+#info-button img {
+  width: 25px;
+  height: 25px;
+}
+
+@media (max-width: 768px) {
+  #info-button {
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
 /* Footer */
 footer {
   text-align: center;
