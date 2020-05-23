@@ -313,6 +313,7 @@ hr {
 }
 
 .pdf-button  {
+  cursor: pointer;
   display: inline-block;
   text-decoration: none;
   background-color: #28a745;
