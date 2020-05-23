@@ -122,12 +122,12 @@ async function generateImage() {
     })
     document.getElementById('pdf-button-large').addEventListener('click', () => {
       var doc = new jsPDF();
-      doc.text('Hello, World!', 10, 10);
+      doc.addImage(img.src, 10, 10)
       doc.save('assignment.pdf');
     })
     document.getElementById('pdf-button-small').addEventListener('click', () => {
       var doc = new jsPDF();
-      doc.text('Hello, World!', 10, 10);
+      doc.addImage(img.src, 10, 10)
       doc.save('assignment.pdf');
     })
   }catch(err) {
