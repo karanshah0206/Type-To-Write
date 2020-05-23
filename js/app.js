@@ -8,6 +8,7 @@ var dateTilt = 310;
 var today = new Date();
 var dateState = 0;
 var dateBool = true;
+var imgURL;
 
 // Initial Function
 function init () {
@@ -114,21 +115,12 @@ async function generateImage() {
 
     document.querySelectorAll('a.download-button').forEach(a => {
       a.href = img.src;
+      imgURL = a.href;
       a.download = 'assignment';
       a.classList.remove('disabled');
     })
     document.querySelectorAll('a.pdf-button').forEach(a => {
       a.classList.remove('disabled');
-    })
-    document.getElementById('pdf-button-large').addEventListener('click', () => {
-      var doc = new jsPDF();
-      doc.addImage(img.src, 10, 10)
-      doc.save('assignment.pdf');
-    })
-    document.getElementById('pdf-button-small').addEventListener('click', () => {
-      var doc = new jsPDF();
-      doc.addImage(img.src, 10, 10)
-      doc.save('assignment.pdf');
     })
   }catch(err) {
     alert("An Error Occured: " + err);
@@ -141,6 +133,15 @@ async function generateImage() {
   }
 }
 
+// PDF Generator
+function pdfGenerator() {
+  var doc = new jsPDF();
+  doc.addImage(imgURL, 10, 10);
+  doc.save('assignment.pdf');
+  doc = '';
+  console.log(doc);
+}
+
 // Equation Functionality
 function eqcopier(superc) {
   document.getElementById("eqcop").style.visibility = "visible";
@@ -150,7 +151,6 @@ function eqcopier(superc) {
   eqtb.setSelectionRange(0, 99999);
   try {
     document.execCommand("copy");
-    console.log(eqtb.value);
   } catch { 
     alert("Cannot COPY!");
   }
@@ -273,7 +273,6 @@ document.querySelector('.equation-palette').addEventListener('click', e => {
 
 document.querySelector('.close-icon').addEventListener('click', e => {
   document.getElementById('equation-hover').style.display = "none";
-  console.log(document.querySelector('.close-icon').value);
 })
 
 document.querySelector("#date-day").addEventListener('change', e => {
