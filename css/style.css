@@ -397,6 +397,7 @@ hr {
   background-color: #ddd;
   padding: 10px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
 }
 
 .info-hider {
