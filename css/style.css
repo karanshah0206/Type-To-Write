@@ -403,6 +403,7 @@ hr {
 
 #info-button {
   position: fixed;
+  z-index: 6;
   bottom: 25px;
   right: 25px;
   height: 25px;
