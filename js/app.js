@@ -352,3 +352,16 @@ for (let item of anchorlinks) {
     e.preventDefault()
   })
 }
+
+// Information Panel
+function infotab () {
+  document.getElementById('info-tab').classList.toggle('info-hider');
+  if(document.getElementById('info-tab').classList.contains('info-hider') == true) {
+    document.getElementById('info-image').src = 'img/information-button.png';
+    document.getElementById('top-most').classList.remove('info-hider');
+  }
+  else {
+    document.getElementById('info-image').src = 'img/cross-button.png';
+    document.getElementById('top-most').classList.add('info-hider');
+  }
+}

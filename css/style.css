@@ -385,6 +385,46 @@ hr {
   }
 }
 
+/* Information Tab */
+#info-tab {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #ddd;
+  padding: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+}
+
+.info-hider {
+  display: none;
+}
+
+#info-button {
+  position: fixed;
+  z-index: 6;
+  bottom: 25px;
+  right: 25px;
+  height: 25px;
+  width: 25px;
+}
+
+#info-button img {
+  width: 25px;
+  height: 25px;
+}
+
+@media (max-width: 768px) {
+  #info-button {
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
 /* Footer */
 footer {
   text-align: center;
