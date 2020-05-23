@@ -361,5 +361,6 @@ function infotab () {
   }
   else {
     document.getElementById('info-image').src = 'img/cross-button.png';
+    window.scrollTo(0, 0);
   }
 }
