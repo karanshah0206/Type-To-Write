@@ -383,3 +383,22 @@ hr {
     display: none;
   }
 }
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #222;
+  color: #ddd;
+  padding: 24px 30px;
+  font-size: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+footer a {
+  text-decoration: none;
+  color: #bbb;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
