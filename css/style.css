@@ -387,7 +387,7 @@ hr {
 
 /* Information Tab */
 #info-tab {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 5;
@@ -395,6 +395,8 @@ hr {
   margin: 0;
   padding: 0;
   background-color: #ddd;
+  padding: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .info-hider {
