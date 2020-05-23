@@ -32,5 +32,5 @@ Created with ♥ for students, by a student.
 ### 5️⃣ Download As Image OR PDF!
 ![Downloads](img/download.png)
 
-### 6️⃣ Copy And Paste Equations Without Leaving The Tab!
+### 6️⃣ Copy And Paste Equation Symbols Without Leaving The Tab!
 ![Equations](img/equation.png)
