@@ -138,8 +138,6 @@ function pdfGenerator() {
   var doc = new jsPDF();
   doc.addImage(imgURL, 10, 10);
   doc.save('assignment.pdf');
-  doc = '';
-  console.log(doc);
 }
 
 // Equation Functionality
