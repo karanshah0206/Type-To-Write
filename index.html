@@ -251,13 +251,14 @@
   </main>
   
   <!-- Info Button -->
-  <div id="info-button" onclick="infotab();">
+  <div id="info-button" onclick="infotab();" title="Information Panel">
     <img src="img/information-button.png" id="info-image">
   </div>
 
   <div id="info-tab" class="info-hider">
-    <center><h1>Information Panel</h1>
-    <p>This panel gives you information on Type To Write and its features.</p></center><br>
+    <center><h1><font style="color: #09f;">Information</font> <font style="color: rgb(255, 0, 0);">Panel</font></h1>
+    <font style="color: #28a745;"><p>This panel gives you information on Type To Write and its features.</p></font></center>
+    <hr>
     <p><b>What Is Type To Write:</b>
     Type To Write is a free text to handwriting converter online. It generates a scanned-looking document which you can download as PNG or PDf for your school, office, or other assignments where you want to pretend that you've written your task.</p>
     <p><b>Saving The Scanned Image:</b>
@@ -284,11 +285,13 @@
     Show the pink vertical and horizontal line that margins the left and top of the scanned notebook page.</p>
     <p><b>Date</b>
     Choose if you want to show date in the margin cross area. Choose your date format and which date you want to display!</p>
+    <p><b>Copyright Info:</b>
+    Copyright &copy; <span id="year"></span> Karan Shah. Type To Write is protected under GNU Lesser General Public License v2.1, read the Terms And Conditions <a href="LICENSE" target="_blank">here</a>. <a href="https://karanshah0206.github.io" target="_blank">Karan Shah</a> is the only Copyright Owner.</p>
   </div>
 
   <!-- Footer -->
   <footer>
-    Made with ♥ in Pune | Copyright © <span id="year"></span> <a href="https://karanshah0206.github.io" target="_blank">Karan Shah</a>.
+    Made with ♥ in Pune | Copyright &copy; <span id="year"></span> <a href="https://karanshah0206.github.io" target="_blank">Karan Shah</a>.
   </footer>
 
   <!-- Javascript -->

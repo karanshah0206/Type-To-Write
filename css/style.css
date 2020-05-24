@@ -395,9 +395,20 @@ hr {
   margin: 0;
   padding: 0;
   background-color: #ddd;
-  padding: 10px;
+  padding-top: 10px;
+  padding-left: 10%;
+  padding-right: 10%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
+  color: #222222;
+}
+
+#info-tab a {
+  color: #222222;
+}
+
+#info-tab a:hover {
+  color: rgb(66, 66, 66);
 }
 
 .info-hider {
