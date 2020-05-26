@@ -34,3 +34,5 @@ Created with ♥ for students, by a student.
 
 ### 6️⃣ Copy And Paste Equation Symbols Without Leaving The Tab!
 ![Equations](img/equation.png)
+
+### 7️⃣ Dedicated Info Button
