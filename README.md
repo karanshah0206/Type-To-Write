@@ -36,3 +36,4 @@ Created with ♥ for students, by a student.
 ![Equations](img/equation.png)
 
 ### 7️⃣ Dedicated Info Button
+![Info-Button](img/info.png) => ![Info-Tab](img/info1.png)
