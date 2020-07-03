@@ -1,4 +1,3 @@
-// Declaring Variables
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 const pageContainerEl = document.querySelector('.page');
 const textareaEl = document.querySelector('.page > .textarea');
@@ -10,7 +9,7 @@ var dateState = 0;
 var dateBool = true;
 var imgURL;
 
-// Initial Function
+// Initialize
 function init () {
   document.getElementById('equation-hover').style.display = "none";
   document.getElementById("paper-margin-toggle").checked = true;
@@ -36,7 +35,7 @@ function init () {
   textareaEl.style.wordSpacing = document.getElementById("word-spacing").value + "px";
 }
 
-// Random Tilt Generator for Date
+// Random Tilt Generator
 function genRand () {
   dateTilt = randomNr();
 }
@@ -44,7 +43,7 @@ function randomNr(){
   return Math.floor(Math.random() * (350 - 300 + 1)) + 300;
 }
 
-// Uploaded Font File Reading
+// Font Upload Processing
 function readFile(fileObj) {
   const reader = new FileReader();
   reader.onload = e => {
@@ -58,7 +57,7 @@ function readFile(fileObj) {
   reader.readAsArrayBuffer(fileObj)
 }
 
-// Adding Artifiial Paper Styles
+// Artifiial Paper Styling
 function applyPaperStyles() {
   textareaEl.style.color = document.getElementById("ink-color").value;
   textareaEl.style.fontSize = document.getElementById("font-size").value + "pt";
@@ -89,7 +88,7 @@ function applyPaperStyles() {
   }
 }
 
-// Removing Artificial Paper Styles
+// Removing Artificial Paper Styling
 function removePaperStyles() {
   pageContainerEl.style.border = '1px solid #ccc';
   pageContainerEl.style.background = 'linear-gradient(to right,#fff, #fff)';
@@ -98,7 +97,7 @@ function removePaperStyles() {
   textareaEl.classList.remove('paper-lined');
 }
 
-// Generates Output Image
+// Generate Output Image
 async function generateImage() {
   applyPaperStyles();
 
@@ -156,7 +155,7 @@ function eqcopier(superc) {
   document.getElementById('equation-hover').style.display = "none";
 }
 
-// Adding Character and Event Listeners to Text, Format, and Display Knobs
+// Listeners
 document.querySelector("#note").addEventListener('paste', (event) => {
   if(!event.clipboardData.types.includes('Files')) {
     event.preventDefault();
@@ -329,10 +328,10 @@ document.querySelector("#date-format").addEventListener('change', e => {
 
 document.querySelector('.generate-image').addEventListener('click', generateImage)
 
-// Gets Year for Footer Copyright
+// Footer Copyright
 document.querySelector('#year').innerHTML = today.getFullYear();
 
-// Smooth Scroll Feature
+// Smooth Scroll
 function smoothlyScrollTo(hashval) {
   let target = document.querySelector(hashval)
   target.scrollIntoView({
@@ -342,7 +341,7 @@ function smoothlyScrollTo(hashval) {
   history.pushState(null, null, hashval)
 }
 
-// Anchor Links
+// Anchoring
 const anchorlinks = document.querySelectorAll('a[href^="#"]');
 
 for (let item of anchorlinks) { 
