@@ -5,7 +5,7 @@ const overlayEl = document.querySelector('.page > .overlay');
 const liner = document.getElementById("paper-line-toggle");
 var dateTilt = 310;
 var today = new Date();
-var dateState = 0;
+var dateState = 1;
 var dateBool = true;
 var imgURL;
 
